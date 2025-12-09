@@ -7,6 +7,7 @@ LangChain1.0 基础PromptTemplate案例（修正版）
 from langchain_core.prompts import PromptTemplate
 
 
+
 # ====================== 没用PromptTemplate的写法（痛点示例） ======================
 def build_prompt_without_template(concept, audience, word_count):
     """
