@@ -21,7 +21,7 @@ def build_prompt_without_template(concept, audience, word_count):
     return prompt
 
 
-# 测试：看似正常，但隐藏风险
+# 测试：看似正常，但隐藏风险。
 print("=== 没用PromptTemplate的输出 ===")
 try:
     # 正常传参
