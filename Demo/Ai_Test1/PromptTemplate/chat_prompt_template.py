@@ -77,7 +77,6 @@ for msg in messages:
     print(f"{msg.type}: {msg.content}")
 
 
-
 """
 # 4. 直接调用GPT-3.5（无需手动转换格式）
 print("\n=== 调用GPT-3.5的输出 ===")
