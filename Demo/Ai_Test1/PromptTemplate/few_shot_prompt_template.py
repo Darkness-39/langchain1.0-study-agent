@@ -44,14 +44,14 @@ example_template = """
 example_prompt = PromptTemplate.from_template(example_template)
 
 # 2. 示例数据（可从YAML/数据库读取，运营可独立维护）
-examples = [
+ep = [
     {"question": "什么是订单退款？", "answer": "订单退款是指用户申请退回订单支付金额，审核通过后原路返还。"},
     {"question": "物流超时怎么办？", "answer": "物流超时可联系商家催单，或申请售后补偿。"}
 ]
 
 # 3. 构建少样本模板
 few_shot_prompt = FewShotPromptTemplate(
-    examples=examples,          # 示例数据
+    examples=ep,          # 示例数据
     example_prompt=example_prompt,  # 示例格式模板
     prefix="参考以下示例回答问题：",  # 示例前的引导语
     suffix="问题：{new_question}\n答案：",  # 示例后的用户问题
@@ -65,8 +65,8 @@ prompt2 = few_shot_prompt.format(new_question="订单发货后能退款吗？")
 print(prompt2)
 
 # 扩展：动态添加示例（运营无需改代码，直接加数据）
-examples.append({"question": "订单发货后能退款吗？", "answer": "发货后可申请退款，商家确认后会安排退货退款。"})
-few_shot_prompt.examples = examples  # 更新示例
+ep.append({"question": "订单发货后能退款吗？", "answer": "发货后可申请退款，商家确认后会安排退货退款。"})
+few_shot_prompt.examples = ep  # 更新示例
 prompt3 = few_shot_prompt.format(new_question="订单发货后能退款吗？")
 print("\n=== 动态添加示例后的输出 ===")
 print(prompt3)
